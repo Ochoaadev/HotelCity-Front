@@ -3,6 +3,7 @@ import Info from './components/Info'
 import About from './components/AboutUs'
 import Service from './components/services'
 import Footer from './components/Footer'
+import Carrusel from './components/carrusel'
 
 function App() {
 
@@ -11,7 +12,7 @@ function App() {
     <>
     <Header/>
     <Info/>
-    {/* <Carrusel/> */}
+    <Carrusel/>
     <About/>
     <Service/>
     <Footer/>
