@@ -9,7 +9,7 @@ export default {
       colors: {
         gris: "#808080",
         blanco: "#FFFFFF",
-        beige:"#D4B996",
+        AzulO:"#172554",
         crema:"#F3E5AB"
       },
     },

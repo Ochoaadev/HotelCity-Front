@@ -1,5 +1,8 @@
 import Header from "./components/Header"
 import Info from './components/Info'
+import About from './components/AboutUs'
+import Service from './components/services'
+import Footer from './components/Footer'
 
 function App() {
 
@@ -8,6 +11,10 @@ function App() {
     <>
     <Header/>
     <Info/>
+    {/* <Carrusel/> */}
+    <About/>
+    <Service/>
+    <Footer/>
     </>
   )
 }
