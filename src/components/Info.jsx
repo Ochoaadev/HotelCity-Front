@@ -1,8 +1,9 @@
 import React from 'react'
 import {RiCheckboxBlankCircleFill, RiPhoneFill} from 'react-icons/ri'
-
+import Carrusel from './carrusel';
 function Info(){
     return(
+        <>
         <section className="bg-crema h-[90vh] grid grid-cols-1 md:grid-cols-8">  {/*Cambiar fondo */}
             {/*Informacion */}
             <div className='md:col-span-5 flex items-center justify-center p-8'>
@@ -35,6 +36,8 @@ function Info(){
                 <img src=""className /> 
             </div>
         </section>
+        <Carrusel />
+        </>
     )
 }
 
