@@ -8,8 +8,8 @@ function App() {
     <>
     <Header/>
     <Info/>
-    <Carrusel/>
     <Advanced/>
+    <Carrusel/>
     <Footer/>
     </>
   )

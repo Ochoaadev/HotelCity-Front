@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from '../components/Header';
+import Footer from "../components/Footer";
+
 function Form_reservas (){
    const [InputCedula, SetInputCedula ] = useState();
    const [InputName, SetInputName ] = useState();
@@ -149,6 +151,7 @@ function Form_reservas (){
                </div>
             </form>
          </div>
+         <Footer/>
       </>
    )
 }

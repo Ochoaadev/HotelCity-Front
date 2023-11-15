@@ -7,8 +7,8 @@ function Carrusel() {
    // Array de imágenes para el carrusel
    const images = [
       '../src/assets/Hotel.png',
-      '../src/assets/Hotel_car.jpeg',
-      '../src/assets/Hotel_car2.jpeg'
+      '../src/assets/Carrusel1.png',
+      '../src/assets/Carrusel2.png'
    ];
 
    // Estado para el índice de la imagen actual
@@ -43,7 +43,7 @@ function Carrusel() {
    // Renderizado del componente
    return (
       <>
-         <div className="carousel relative bg-gray-200">
+         <div className="carousel relative bg-gray-200 ">
             {/* Botón para volver a la imagen anterior */}
             <button 
                onClick={prevSlide} 

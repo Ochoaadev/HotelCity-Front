@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './Header';
+import Footer from './Footer'
 
 function Service(){
   return(
@@ -41,9 +42,10 @@ function Service(){
                   <h3 className="text-xl font-bold flex items-center justify-center">Aprovecha de nuestras promoción!</h3>
                   <p className='flex items-center justify-center '>Reserva 4 noches, y recibe la 5ta totalmente gratis!(Valido Hasta el 31 de Diciembre)</p>
                 </div>
-       </div>
-    </div>
-  </div>
+          </div>
+        </div>
+      </div>
+  <Footer/>
   </>
   )
 }

@@ -3,7 +3,7 @@ import { RiRoadMapLine  } from 'react-icons/ri';
 
 function Info() {
     return (
-      <section id="home" className="bg-blanco h-[90vh] grid grid-cols-1 md:grid-cols-8 ">
+      <section id="home" className="bg-blanco min-h-[90vh] grid grid-cols-1 xl:grid-cols-8">
         {/* Informacion */}
         <div className="md:col-span-5 flex items-center justify-center p-16">
           <div className="flex flex-col gap-8 text-center">
@@ -14,9 +14,6 @@ function Info() {
             <p className="font-bold text-black text-xl md:text-2xl leading-[3rem]">
             Disfruta de nuestras agradables y cómodas instalaciones para que tengas una experiencia excepcional e inolvidable.
             </p>
-            {/* <p className="font-bold text-black text-xl md:text-2xl leading-[2,5rem]">
-              
-            </p> */}
             <div className="flex items-center justify-center">
               <button className="bg-orange-600 text-white py-2 px-6 font-bold rounded-xl text-xl">
                 <div className="flex items-center">
