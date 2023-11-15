@@ -1,7 +1,10 @@
 import React from 'react';
+import Header from './Header';
 
 function Service(){
   return(
+    <>
+    <Header/>
         <div id="services">
           <h1 className='text-2xl font-bold mb-8 flex items-center justify-center'>Servicios Disponibles</h1>
           {/*Servicio 1*/}
@@ -41,6 +44,7 @@ function Service(){
        </div>
     </div>
   </div>
+  </>
   )
 }
 

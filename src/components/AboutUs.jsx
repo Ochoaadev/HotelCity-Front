@@ -1,7 +1,10 @@
 import React from 'react'
+import Header from './Header'
 
 function About(){
     return(
+        <>
+        <Header/>
         <div id="aboutUs" className="p-8  xl:p-15 bg-crema">
             <div className='mb-4'>
                 <h1 className="text-[40px] font-bold mb-5">¿Quienes Somos?</h1>
@@ -52,6 +55,7 @@ function About(){
                 </div>
             </div>
         </div>
+        </>
     )
 }
 
