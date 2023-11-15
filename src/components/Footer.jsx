@@ -7,7 +7,7 @@ function Footer(){
             {/*Logo */}
             <div className='flex items-center justify-between border-b pb-8'>
                 <a href="#" className="text-2xl font-bold p-1" >
-                    <img src="../src/assets/Logo.png" className="w-30 h-28 mt-5 ml-20" />
+                    <img src="../src/assets/Logo.png" className="w-30 h-28 mt-5 xl:ml-20" />
                 </a>
                 {/*Redes Sociales */}
                 <nav className='flex items-center justify-center gap-4'>
