@@ -50,7 +50,7 @@ function Form_reservas (){
                   <label for="Cedula" className="mb-2">
                      Cedula
                      <input 
-                        className="border border-black w-full"
+                        className="rounded-lg border border-black w-full"
                         type="text" 
                         id="Cedula"
                         value={InputCedula}
@@ -62,7 +62,7 @@ function Form_reservas (){
                   <label for="name" className="mb-2">
                      Nombre Completo
                      <input 
-                        className="border border-black w-full"
+                        className="rounded-lg border border-black w-full"
                         type="text" 
                         id="name"
                         value={InputName}
@@ -74,7 +74,7 @@ function Form_reservas (){
                   <label for="email" className="mb-4">
                      Email
                      <input 
-                        className="border border-black w-full"
+                        className="rounded-lg border border-black w-full"
                         type="email" 
                         id="email"
                         value={InputEmail}
@@ -86,7 +86,7 @@ function Form_reservas (){
                   <label for="email" className="mb-2">
                      Movil
                      <input 
-                        className="border border-black w-full"
+                        className="rounded-lg border border-black w-full"
                         type="Movil" 
                         id="Movil"
                         value={InputMovil}
@@ -97,7 +97,7 @@ function Form_reservas (){
                <div className="flex flex-col">
                   <label for="telefono" className="mb-4">Telefono
                      <input 
-                        className="border border-black w-full"
+                        className="rounded-lg border border-black w-full"
                         type="telefono" 
                         id="telefono"
                         value={InputTelefono}
@@ -108,7 +108,7 @@ function Form_reservas (){
                <div className="flex flex-col">            
                   <label for="PrimeraN" className="mb-4">Primera noche de Estancia?
                      <input 
-                        className="border border-black w-full"
+                        className="rounded-lg border border-black w-full"
                         type="date" 
                         id="PrimeraN"
                         value={InputPrimeraN}
@@ -119,7 +119,7 @@ function Form_reservas (){
                <div className="flex flex-col">            
                   <label for="UltimaN" className="mb-4">Ultima noche de Estancia?
                      <input 
-                        className="border border-black w-full"
+                        className="rounded-lg border border-black w-full"
                         type="date" 
                         id="UltimaN"
                         value={InputUltimaN}
@@ -130,7 +130,7 @@ function Form_reservas (){
                <div className="flex flex-col"> 
                   <label for="CargaF" className="mb-4">Número de Adultos/Niños?
                      <input 
-                        className="border border-black w-full"
+                        className="rounded-lg border border-black w-full"
                         type="number" 
                         id="CargaF"
                         value={InputCargaF}
@@ -141,7 +141,7 @@ function Form_reservas (){
                <div className="flex flex-col"> 
                   <label for="Pregunta">Por que nos elegiste?
                      <textarea 
-                        className="border border-black w-full"
+                        className="rounded-lg border border-black w-full"
                         type="text" 
                         id="Pregunta"
                         value={InputPregunta}
@@ -149,6 +149,9 @@ function Form_reservas (){
                      />
                   </label>
                </div>
+               <button class="bg-AzulO float-right hover:bg-bg-AzulO-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+                  Reservar
+               </button>
             </form>
          </div>
          <Footer/>
