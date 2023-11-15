@@ -1,9 +1,17 @@
+import { useNavigate } from 'react-router-dom';
 import React, {useState} from "react"
 import {RiMenu3Line, RiCloseFill } from 'react-icons/ri'
-
+import Form_reservas from "../routes/Formulario_Reservas";
 function Header(){
+    const navigate = useNavigate();
+    const handleOpenForm = () => {
+        // setIsFormOpen(true);
+        navigate("/formulario_reservas");
+     };
     const [showMenu, SetshowMenu] = useState(false)
     return(
+        <>
+      
         <header className="bg-AzulO flex items-center justify-between xl:justify-start w-full py-4 px-8 h-[14vh] z-50">
             <div className="xl:w-1/6 text-center -mt-4">
                 <a href="#" className="text-2xl font-bold p-1" >
@@ -30,7 +38,10 @@ function Header(){
             >
                 {showMenu ? <RiCloseFill/>:<RiMenu3Line/> }
             </button>
+            <button onClick={handleOpenForm}>Open</button>
         </header>
+        
+        </>
     )
 }
 
