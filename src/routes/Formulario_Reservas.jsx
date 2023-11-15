@@ -42,8 +42,8 @@ function Form_reservas (){
    return(
       <>
          <Header />
-         <div className="w-full max-w-5xl flex justify-center items-center m-auto mt-10">
-            <form action="form_reservas" className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+         <div className=" w-full max-w-5xl flex justify-center items-center m-auto mt-10">
+            <form action="form_reservas" className="bg-crema shadow-md rounded px-8 pt-6 pb-8 mb-4">
                <div className="flex flex-col ">
                   <label for="Cedula" className="mb-2">
                      Cedula
@@ -72,7 +72,7 @@ function Form_reservas (){
                   <label for="email" className="mb-4">
                      Email
                      <input 
-                        className="border border-black w-96 ml-2"
+                        className="border border-black w-full"
                         type="email" 
                         id="email"
                         value={InputEmail}
@@ -84,7 +84,7 @@ function Form_reservas (){
                   <label for="email" className="mb-2">
                      Movil
                      <input 
-                        className="border border-black w-96 ml-2"
+                        className="border border-black w-full"
                         type="Movil" 
                         id="Movil"
                         value={InputMovil}
@@ -95,7 +95,7 @@ function Form_reservas (){
                <div className="flex flex-col">
                   <label for="telefono" className="mb-4">Telefono
                      <input 
-                        className="border border-black w-96 ml-2"
+                        className="border border-black w-full"
                         type="telefono" 
                         id="telefono"
                         value={InputTelefono}
@@ -106,7 +106,7 @@ function Form_reservas (){
                <div className="flex flex-col">            
                   <label for="PrimeraN" className="mb-4">Primera noche de Estancia?
                      <input 
-                        className="border border-black w-96 ml-2"
+                        className="border border-black w-full"
                         type="date" 
                         id="PrimeraN"
                         value={InputPrimeraN}
@@ -117,7 +117,7 @@ function Form_reservas (){
                <div className="flex flex-col">            
                   <label for="UltimaN" className="mb-4">Ultima noche de Estancia?
                      <input 
-                        className="border border-black w-96 ml-2"
+                        className="border border-black w-full"
                         type="date" 
                         id="UltimaN"
                         value={InputUltimaN}
@@ -128,7 +128,7 @@ function Form_reservas (){
                <div className="flex flex-col"> 
                   <label for="CargaF" className="mb-4">Número de Adultos/Niños?
                      <input 
-                        className="border border-black w-96 ml-2"
+                        className="border border-black w-full"
                         type="number" 
                         id="CargaF"
                         value={InputCargaF}
@@ -138,7 +138,8 @@ function Form_reservas (){
                </div>
                <div className="flex flex-col"> 
                   <label for="Pregunta">Por que nos elegiste?
-                     <input 
+                     <textarea 
+                        className="border border-black w-full"
                         type="text" 
                         id="Pregunta"
                         value={InputPregunta}
