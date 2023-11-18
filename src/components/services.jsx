@@ -1,6 +1,8 @@
 import React from 'react';
 import Header from './Header';
 import Footer from './Footer'
+import Habitaciones from '../routes/Room'
+import {Link} from 'react-router-dom'
 
 function Service(){
   return(
@@ -14,9 +16,11 @@ function Service(){
                 <img src="../src/assets/Servicio1.png" className='w-full rounded-3xl object-cover h-56 '/>
                 <div>
                   <h3 className="text-xl font-bold flex items-center justify-center">Contamos con las mejores habitaciones, y al mejor precio!</h3>
-                  <p className='flex items-center justify-center font-bold'>Habitación estándar: $150 por noche</p>
-                  <p className='flex items-center justify-center font-bold'>Suite deluxe: $250 por noche</p>
-                  <p className='flex items-center justify-center font-bold'>Junior Suite: $200 por noche</p>
+                        <Link to='/habitaciones'>
+                          <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-[18rem] mt-4 mb-2'> 
+                              Ver Habitaciones
+                          </button>
+                        </Link>
                 </div>
           </div>
           {/*Servicio 2*/}
