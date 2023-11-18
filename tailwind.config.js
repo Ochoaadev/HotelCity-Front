@@ -7,7 +7,6 @@ export default {
   theme: {
     extend: {
       colors: {
-        gris: "#808080",
         blanco: "#FFFFFF",
         AzulO:"#172554",
         crema:"#F3E5AB"
