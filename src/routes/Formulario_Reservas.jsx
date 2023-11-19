@@ -3,11 +3,6 @@ import Header from '../components/Header';
 
 
 function Form_reservas (){
-<<<<<<< HEAD
-=======
-   console.log(process.env.URL_RESERVAS);
-
->>>>>>> 86d829a8578f87e42a99c99f27b8fdaeb1f346f1
    const [message, setMessage] = useState(null);
    const [InputCedula, SetInputCedula ] = useState();
    const [InputName, SetInputName ] = useState();
