@@ -1,4 +1,7 @@
 import React, {useState} from "react";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+
 
 function Register(){
    const [InputName, SetInputName ] = useState();
@@ -30,6 +33,7 @@ function Register(){
       
    return(
       <>
+      <Header/>
          <div className="w-9/12 m-auto mt-10 ">
          <div  className=" w-6/12 justify-center items-center m-auto mt-10">
             
@@ -108,6 +112,7 @@ function Register(){
             </form>
          </div>   
          </div>
+         <Footer/>
       </>
    )
 
