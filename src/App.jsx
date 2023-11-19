@@ -9,7 +9,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import UpProvider from "./contexts/UpProvider";
 import ProtectedRoute from "./ProtecRoutes";
 import { AuthProvider, useAuth } from "./contexts/AuthProvider";
-import Login from "./routes/Login"
 import Home from "./routes/MiHotel"
 import FormularioReservas from "./routes/Formulario_Reservas";
 
