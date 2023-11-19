@@ -16,7 +16,7 @@ function Service(){
                 <img src="../src/assets/Servicio1.png" className='w-full rounded-3xl object-cover h-56 '/>
                 <div>
                   <h3 className="text-xl font-bold flex items-center justify-center">Contamos con las mejores habitaciones, y al mejor precio!</h3>
-                        <Link to='/habitaciones'>
+                        <Link to='/Habitaciones'>
                           <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-[18rem] mt-4 mb-2'> 
                               Ver Habitaciones
                           </button>

@@ -153,9 +153,6 @@ const Login = () => {
           <a className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 flex items-center justify-center pt-8" href="#">
               Olvide mi Contraseña
             </a>
-            {errorMessage && (
-                <p className="text-red-500 text-xs italic">{errorMessage}</p>
-            )}
         </form>
       </div>
     </div>
