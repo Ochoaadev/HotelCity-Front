@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Header from '../components/Header';
 
+
 function Form_reservas (){
    console.log(process.env.URL_RESERVAS);
+
    const [message, setMessage] = useState(null);
    const [InputCedula, SetInputCedula ] = useState();
    const [InputName, SetInputName ] = useState();
@@ -46,10 +48,12 @@ function Form_reservas (){
       return false;
     };
 
+
    const Add_Reservas = async (event) => {
       event.preventDefault();
       const alert = await focusOnFirstEmptyInput();
-
+     
+     
       const Data_Json = {
          "Cedula":  InputCedula,
          "Name":    InputName,
