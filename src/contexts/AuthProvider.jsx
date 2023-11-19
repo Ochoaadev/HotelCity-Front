@@ -27,7 +27,7 @@ export const AuthProvider = ({ children }) => {
       setUser(data.payload);
       setIsAuthenticated(true);
       sessionStorage.setItem("token", data.token);
-      return { ruta: "/Home", data: data };
+      return { ruta: "/", data: data };
     } else {
       setUser(null);
       setIsAuthenticated(false);
@@ -46,7 +46,7 @@ export const AuthProvider = ({ children }) => {
       setUser(data.payload);
       setIsAuthenticated(true);
       sessionStorage.setItem("token", data.token);
-      return { ruta: "/Home", data: data };
+      return { ruta: "/", data: data };
     } else {
       setUser(null);
       setIsAuthenticated(false);

@@ -6,6 +6,8 @@ import Service from "./components/services";
 import Advanced from './components/Benf'
 import App from "./App";
 import Habitaciones from './routes/Room'
+import Login from './routes/Login'
+import Register from './routes/Register'
 
 export const router = createBrowserRouter([
     {
@@ -31,5 +33,13 @@ export const router = createBrowserRouter([
     {
         path: '/habitaciones',
         element: <Habitaciones/>
+    },
+    {
+        path: '/Login',
+        element: <Login/>
+    },
+    {
+        path: '/Registro',
+        element: <Register/>
     }
 ])
