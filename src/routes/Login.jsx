@@ -19,7 +19,7 @@ const Login = () => {
     useEffect(() => {
       const token = sessionStorage.getItem("token");
       if (token != "" && isAuthenticated) {
-        navigate("/Info");
+        navigate("/Home");
       }
     }, [isAuthenticated]);
 

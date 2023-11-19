@@ -10,6 +10,7 @@ import UpProvider from "./contexts/UpProvider";
 import ProtectedRoute from "./ProtecRoutes";
 import { AuthProvider, useAuth } from "./contexts/AuthProvider";
 import Login from "./routes/Login"
+import Home from "./routes/MiHotel"
 function App() {
   return (
     <>
@@ -17,9 +18,10 @@ function App() {
         <BrowserRouter>
           <UpProvider>
             <Routes>
-              <Route path="/" element={<Info />} />
+              <Route path="/" element={<Home />} />
               <Route path="/Register" element={<Register />} />
               <Route path="/Login" element={<Login />} />
+              <Route path="/Home" element={<Home />} />
               {/* //Faltan los permisos */}
             </Routes>
           </UpProvider>

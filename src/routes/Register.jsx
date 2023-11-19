@@ -17,7 +17,7 @@ function Register(){
     console.log("token");
     console.log(token);
     if (token != "" && isAuthenticated) {
-      navigate("/Info")
+      navigate("/Home")
     }
   }, [isAuthenticated]);
 
