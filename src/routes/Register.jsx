@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-
+import { Link, useNavigate } from "react-router-dom";
 
 function Register(){
    const [message, setMessage] = useState(null);
@@ -14,7 +14,6 @@ function Register(){
 
    const HandleInputName = (event) => {
       SetInputName(event.target.value);
-      console.log(event.target.value);
    }
    const HandleInputLastName = (event) => {
       SetInputLastName(event.target.value);
@@ -50,7 +49,8 @@ function Register(){
          return;
       }
       console.log(Data_Json);
-   const response = await fetch(import.meta.env.VITE_URL_REGISTER, {
+
+        const response = await fetch(import.meta.env.VITE_URL_REGISTER, {
      method: "POST",
      headers: {
       'Content-Type': 'application/json'
@@ -61,6 +61,7 @@ function Register(){
    console.log(await data);
       await setMessage(data.message);
       await console.log(data.status);
+      navigate(response.ruta);
 
    }
       
