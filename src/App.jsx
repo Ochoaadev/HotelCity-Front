@@ -3,6 +3,7 @@ import Info from './components/Info';
 import Advanced from './components/Benf';
 import Footer from './components/Footer';
 import About from './components/AboutUs'
+import Login from './routes/Login';
 import Carrusel from './components/carrusel';
 import Register from "./routes/Register"
 import Service from './components/services'
