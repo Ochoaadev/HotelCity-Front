@@ -3,8 +3,6 @@ import Header from '../components/Header';
 
 
 function Form_reservas (){
-   console.log(process.env.URL_RESERVAS);
-
    const [message, setMessage] = useState(null);
    const [InputCedula, SetInputCedula ] = useState();
    const [InputName, SetInputName ] = useState();
@@ -65,15 +63,15 @@ function Form_reservas (){
          "CargaF":   InputCargaF,
          "Comment":  InputPregunta
       };
-         if (alert === true) {
-            return;
-         }
-      const response = await fetch("http://localhost:4000/Add_Reservas", {
-        method: "POST",
-        headers: {
-         'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(Data_Json),
+      if (alert === true) {
+         return;
+      }
+      const response = await fetch(import.meta.env.VITE_URL_REGISTER, {
+         method: "POST",
+         headers: {
+            'Content-Type': 'application/json'
+         },
+         body: JSON.stringify(Data_Json),
       });
       const data = await response.json();
          await setMessage(data.message);
