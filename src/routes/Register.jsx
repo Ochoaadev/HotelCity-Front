@@ -10,7 +10,7 @@ function Register(){
 
    const HandleInputName = (event) => {
       SetInputName(event.target.value);
-      console.log(event.target.valu);
+      console.log(event.target.value);
    }
    const HandleInputLastName = (event) => {
       SetInputLastName(event.target.value);
