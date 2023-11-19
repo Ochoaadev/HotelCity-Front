@@ -1,8 +1,8 @@
-import Header from "./components/Header"
-import Info from './components/Info'
-import Advanced from './components/Benf'
-import Footer from './components/Footer'
-import Carrusel from './components/carrusel'
+import Header from "./components/Header";
+import Info from './components/Info';
+import Advanced from './components/Benf';
+import Footer from './components/Footer';
+import Carrusel from './components/carrusel';
 import Users from "./routes/Users";
 import Register from "./routes/Register"
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -18,8 +18,8 @@ function App() {
           <UpProvider>
             <Routes>
               <Route path="/" element={<Info />} />
-              <Route path="/Registro" element={<Register />} />
-              <Route path="/Login" element ={<Login/>} />
+              <Route path="/Register" element={<Register />} />
+              <Route path="/Login" element={<Login />} />
               {/* //Faltan los permisos */}
             </Routes>
           </UpProvider>
