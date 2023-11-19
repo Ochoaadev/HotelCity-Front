@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 
 
 function Register(){
+   const [message, setMessage] = useState(null);
    const [InputName, SetInputName ] = useState();
    const [InputLastName, SetInputLastName] = useState();
    const [InputEmail, SetInputEmail] = useState();
@@ -25,15 +26,52 @@ function Register(){
       SetInputUserName(event.target.value);
    }
    const HandleInputPassword = (event) => {
-      SetInputPassword(event.targe.value);
+      SetInputPassword(event.target.value);
    }
    const HandleInputGender = (event) => {
       SetInputGender(event.target.value);
    }
+   const focusOnFirstEmptyInput = () => {
+      return false;
+   };
+   const Add_Register = async (event) =>{
+      event.preventDefault();
+      const alert = await focusOnFirstEmptyInput();
+     
+      const Data_Json = {
+         "name": InputName,
+         "email": InputEmail,
+         "password": InputPassword,
+         "lastname": InputLastName,
+         "username": InputUserName,
+         "gender": InputEmail
+      }
+      if (alert === true) {
+         return;
+      }
+      console.log(Data_Json);
+   const response = await fetch(import.meta.env.VITE_URL_REGISTER, {
+     method: "POST",
+     headers: {
+      'Content-Type': 'application/json'
+   },
+   body: JSON.stringify(Data_Json),
+   });
+   const data = await response.json();
+   console.log(await data);
+      await setMessage(data.message);
+      await console.log(data.status);
+
+   }
       
    return(
       <>
-      <Header/>
+      <Header />
+         {message && (
+         <div className="alert alert-success mt-3">
+            {message}
+         </div>
+      )}
          <div className="w-9/12 m-auto mt-10 ">
          <div  className=" w-6/12 justify-center items-center m-auto mt-10">
             
@@ -83,8 +121,8 @@ function Register(){
                      className="mt-2 py-2 rounded-lg border border-black w-full"
                      type="password" 
                      id="Password"
-                     placeholder="Ingrese Password:"
                      value={InputPassword}
+                     placeholder="Ingrese Password:"
                      onChange={HandleInputPassword}   
                   />
                </div>
@@ -103,7 +141,11 @@ function Register(){
          Cancelar
       </span>
    </button>
-   <button class="mt-5 relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+   <button 
+      onClick={(event) => {
+         Add_Register(event);
+      }}
+      class="mt-5 relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
       <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
          Registrar
       </span>
