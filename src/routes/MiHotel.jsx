@@ -3,18 +3,18 @@ import Info from '../components/Info'
 import Advanced from '../components/Benf'
 import Footer from '../components/Footer'
 import Carrusel from '../components/carrusel'
-import { useMatch } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useAuth } from "../contexts/AuthProvider";
 function MiHotel() {
-    const match2 = useMatch("/Home");
+  const location = useLocation();
     const { user } = useAuth();
     return (
       <>
       <Header/>
     <Info/>
     <Advanced/>
-     {/* Modales */}
-     {match2 && user.rol == "Admin" ? (
+    {/* Modales */}
+    {(location.pathname === "/" || location.pathname === "/Home") && user.rol == "Admin" ? (
         <>
           <Carrusel/>
         </>
