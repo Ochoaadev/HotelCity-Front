@@ -1,10 +1,28 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
+import Message from "../components/Modal/Message";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/AuthProvider";
+import { useItemsContext, useUpItemsContext } from "../contexts/UpProvider";
 
 function Register(){
-   const [message, setMessage] = useState(null);
+   const { setMessage, setStatus, handleOpenMessage } = useItemsContext();
+  const update = useUpItemsContext();
+  const navigate = useNavigate();
+  const { signup, isAuthenticated } = useAuth();
+
+  useEffect(() => {
+    const token = sessionStorage.getItem("token");
+    console.log("token");
+    console.log(token);
+    if (token != "" && isAuthenticated) {
+      navigate("/Info")
+    }
+  }, [isAuthenticated]);
+
+
+
    const [InputName, SetInputName ] = useState();
    const [InputLastName, SetInputLastName] = useState();
    const [InputEmail, SetInputEmail] = useState();
@@ -33,46 +51,73 @@ function Register(){
    const focusOnFirstEmptyInput = () => {
       return false;
    };
-   const Add_Register = async (event) =>{
-      event.preventDefault();
-      const alert = await focusOnFirstEmptyInput();
+   // const Add_Register = async (event) =>{
+   //    e.preventDefault();
+   //  const alert = await focusOnFirstEmptyInput();
+   //  if (alert === true) {
+   //    return;
+   //  }
      
-      const Data_Json = {
+   //    const Data_Json = {
+   //       "name": InputName,
+   //       "email": InputEmail,
+   //       "password": InputPassword,
+   //       "lastname": InputLastName,
+   //       "username": InputUserName,
+   //       "gender": InputEmail
+   //    }
+   //    if (alert === true) {
+   //       return;
+   //    }
+   //    console.log(Data_Json);
+
+   //   const response = await fetch(import.meta.env.VITE_URL_REGISTER, {
+   //   method: "POST",
+   //   headers: {
+   //    'Content-Type': 'application/json'
+   // },
+   // body: JSON.stringify(Data_Json),
+   // });
+   // const data = await response.json();
+   // if (data.status != 200) {
+   //    await setMessage(response.data.message);
+   //    await setStatus(response.data.status);
+   //    await handleOpenMessage();
+   // }
+   // navigate(response.ruta);
+
+   // }
+
+
+   const Add_Register = async (e) => {
+      e.preventDefault();
+      const alert = await focusOnFirstEmptyInput();
+      if (alert === true) {
+        return;
+      }
+
+      const data_register = {
          "name": InputName,
          "email": InputEmail,
          "password": InputPassword,
          "lastname": InputLastName,
          "username": InputUserName,
          "gender": InputEmail
+      };
+  
+      const response = await signup(data_register);
+      if (response.data.status != 200) {
+        await setMessage(response.data.message);
+        await setStatus(response.data.status);
+        await handleOpenMessage();
       }
-      if (alert === true) {
-         return;
-      }
-      console.log(Data_Json);
-
-        const response = await fetch(import.meta.env.VITE_URL_REGISTER, {
-     method: "POST",
-     headers: {
-      'Content-Type': 'application/json'
-   },
-   body: JSON.stringify(Data_Json),
-   });
-   const data = await response.json();
-   console.log(await data);
-      await setMessage(data.message);
-      await console.log(data.status);
       navigate(response.ruta);
-
-   }
+    };
       
    return(
       <>
+      <Message />
       <Header />
-         {message && (
-         <div className="alert alert-success mt-3">
-            {message}
-         </div>
-      )}
          <div className="w-9/12 m-auto mt-10 ">
          <div  className=" w-6/12 justify-center items-center m-auto mt-10">
             
@@ -143,8 +188,10 @@ function Register(){
       </span>
    </button>
    <button 
+      type="submit"
       onClick={(event) => {
-         Add_Register(event);
+        Add_Register(event);
+        update(true);
       }}
       class="mt-5 relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
       <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
