@@ -14,7 +14,7 @@ import { AuthProvider, useAuth } from "./contexts/AuthProvider";
 import Home from "./routes/MiHotel"
 import FormularioReservas from "./routes/Formulario_Reservas";
 import Room from './routes/Room'
-
+import Listar_Reservas from './routes/Listar_Reservas'
 function App() {
   return (
     <>
@@ -32,6 +32,7 @@ function App() {
               <Route element={<ProtectedRoute rol={["User", "Admin"]} />}>
               <Route path="/Home" element={<Home />} />
               <Route path="/Reservas" element={<FormularioReservas />} />
+              <Route path="/Listar_Reservas" element={<Listar_Reservas/>} />
               </Route>
              
               {/* //Faltan los permisos */}

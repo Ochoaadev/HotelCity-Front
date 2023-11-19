@@ -39,6 +39,9 @@ function Header() {
         navigate("/Registro")
     }
 
+    const handleListarReservas = () =>{
+        navigate("/Listar_Reservas")
+    }
 
     const [showMenu, SetshowMenu] = useState(false);
     const [search, setSearch] = useState('');
@@ -97,9 +100,10 @@ function Header() {
 
 
                 {/* Modales  || user.rol == "User" //Editar,eli o agregar*/}
-                    {(location.pathname === "/" || location.pathname === "/Home" || location.pathname === "/Reservas" || location.pathname === "/Habitaciones") && user.rol == "Admin" ? (
+                    {(location.pathname === "/" || location.pathname === "/Listar_Reservas" || location.pathname === "/Home" || location.pathname === "/Reservas"  || location.pathname === "/Habitaciones") && user.rol == "Admin" ? (
                 <>
-                <button className="font-bold text-blanco" onClick={handleOpenForm}>Ver Reservas</button>
+                <button className="font-bold text-blanco" onClick={handleOpenForm}>Reservas</button>
+                <button className="font-bold text-blanco" onClick={handleListarReservas}>Ver Reservas</button>
                 <button className="font-bold text-blanco" onClick={handleOpenRoom}>Habitaciones</button> 
                 </>
                 ) : null}        
