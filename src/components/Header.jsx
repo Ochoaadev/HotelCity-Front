@@ -1,11 +1,19 @@
 import { useNavigate } from 'react-router-dom';
-import React, { useState } from "react";
+//import React, { useState } from "react";
 import { RiMenu3Line, RiCloseFill } from 'react-icons/ri';
-
+import { useState, useEffect, useContext } from "react";
+import {
+  useItemsContext,
+  useUpItemsContext,
+} from "../contexts/UpProvider";
+import { useLocation } from "react-router-dom";
+import { useAuth } from "../contexts/AuthProvider";
 function Header() {
+    const location = useLocation();
     const navigate = useNavigate();
     const handleOpenForm = () => {
-        navigate("/formulario_reservas");
+
+        navigate("/Reservas");
     };
     const handleOpenHome = () => {
         navigate("/");
@@ -23,6 +31,10 @@ function Header() {
         setSearch(e.target.value);
     };
 
+    const { user, isAuthenticated, logout, theme, setTheme } = useAuth();
+  const [menu, setMenu] = useState(false);
+
+  const update = useUpItemsContext();
     const submitSearch = (e) => {
         e.preventDefault();
         console.log('Buscando:', search);
@@ -64,7 +76,19 @@ function Header() {
                     <button className="font-bold text-blanco" onClick={handleOpenAbutUs}>Sobre Nosotros</button>
 
                     <button className="font-bold text-blanco" onClick={handleOpenservices}>Servicios</button>
-                    <button className="font-bold text-blanco" onClick={handleOpenForm}>Reservar</button>
+
+ {/* Modales */}
+ {(location.pathname === "/" || location.pathname === "/Home" || location.pathname === "/Reservas" ) && user.rol == "Admin" ? (
+        <>
+         <button className="font-bold text-blanco" onClick={handleOpenForm}>Reservar</button>
+        </>
+      ) : null}
+
+         
+                
+      
+        
+                    
                 </nav>
                 <button onClick={() => SetshowMenu(!showMenu)} className="xl:hidden text-2xl p-2">
                     {showMenu ? <RiCloseFill /> : <RiMenu3Line />}

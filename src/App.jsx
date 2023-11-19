@@ -10,6 +10,9 @@ import ProtectedRoute from "./ProtecRoutes";
 import { AuthProvider, useAuth } from "./contexts/AuthProvider";
 import Login from "./routes/Login"
 import Home from "./routes/MiHotel"
+import FormularioReservas from "./routes/Formulario_Reservas";
+
+
 function App() {
   return (
     <>
@@ -18,11 +21,14 @@ function App() {
           <UpProvider>
             <Routes>
               <Route path="/" element={<Home />} />
+              
               <Route path="/Register" element={<Register />} />
               <Route path="/Login" element={<Login />} />
               <Route element={<ProtectedRoute rol={["User", "Admin"]} />}>
               <Route path="/Home" element={<Home />} />
+              <Route path="/Reservas" element={<FormularioReservas />} />
               </Route>
+             
               {/* //Faltan los permisos */}
             </Routes>
           </UpProvider>

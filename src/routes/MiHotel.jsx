@@ -10,7 +10,7 @@ function MiHotel() {
     const { user } = useAuth();
     return (
       <>
-      <Header/>
+      <Header  />
     <Info/>
     <Advanced/>
     {/* Modales */}
