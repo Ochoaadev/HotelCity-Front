@@ -4,6 +4,7 @@ import Advanced from './components/Benf';
 import Footer from './components/Footer';
 import Carrusel from './components/carrusel';
 import Register from "./routes/Register"
+import Login from "./routes/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import UpProvider from "./contexts/UpProvider";
 import ProtectedRoute from "./ProtecRoutes";
@@ -28,7 +29,6 @@ function App() {
               <Route path="/Home" element={<Home />} />
               <Route path="/Reservas" element={<FormularioReservas />} />
               </Route>
-             
               {/* //Faltan los permisos */}
             </Routes>
           </UpProvider>
