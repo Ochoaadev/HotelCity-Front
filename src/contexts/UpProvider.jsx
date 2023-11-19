@@ -22,96 +22,96 @@ export default function UpProvider({ children }) {
   const [inputSearch, setInputSearch] = useState("");
   const [filterCategory, setFilterCategory] = useState("");
 
-  const fetchData = async (load) => {
-    if (load === true) {
-      await fetch("http://localhost:4000/ListarItem")
-        .then((res) => res.json())
-        .then((data) => {
-          setItems(data);
-        })
-        .catch((error) => console.error("Error:", error));
-    } else {
-      await fetch(`http://localhost:4000/FilterProducts/${inputSearch}`)
-        .then((res) => res.json())
-        .then((data) => {
-          data.length > 0 ? setItems(data) : setItems([]);
-        })
-        .catch((error) => console.error("Error:", error));
-    }
-  };
+  // const fetchData = async (load) => {
+  //   if (load === true) {
+  //     await fetch("http://localhost:4000/ListarItem")
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         setItems(data);
+  //       })
+  //       .catch((error) => console.error("Error:", error));
+  //   } else {
+  //     await fetch(`http://localhost:4000/FilterProducts/${inputSearch}`)
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         data.length > 0 ? setItems(data) : setItems([]);
+  //       })
+  //       .catch((error) => console.error("Error:", error));
+  //   }
+  // };
 
-  const FiltrarCategory = async () => {
-    await fetch(`http://localhost:4000/Filtrar_categorias/${filterCategory}`)
-      .then((res) => res.json())
-      .then((data) => {
-        filterCategory != "" ? setItems(data) : fetchData(true);
-      })
-      .catch((error) => console.error("Error:", error));
-  };
+  // const FiltrarCategory = async () => {
+  //   await fetch(`http://localhost:4000/Filtrar_categorias/${filterCategory}`)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       filterCategory != "" ? setItems(data) : fetchData(true);
+  //     })
+  //     .catch((error) => console.error("Error:", error));
+  // };
 
-  useEffect(() => {
-    FiltrarCategory();
-  }, [filterCategory]);
+  // useEffect(() => {
+  //   FiltrarCategory();
+  // }, [filterCategory]);
 
-  const getCategory = async () => {
-    await fetch("http://localhost:4000/Listar_categorias")
-      .then((res) => res.json())
-      .then((data) => {
-        setListCategory(data);
-      })
-      .catch((error) => console.error("Error:", error));
-  };
+  // const getCategory = async () => {
+  //   await fetch("http://localhost:4000/Listar_categorias")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setListCategory(data);
+  //     })
+  //     .catch((error) => console.error("Error:", error));
+  // };
 
-  const addCategory = async () => {
-    const formData = new FormData();
-    formData.append("name", subcategory);
+  // const addCategory = async () => {
+  //   const formData = new FormData();
+  //   formData.append("name", subcategory);
 
-    await fetch("http://localhost:4000/Agregar_categorias", {
-      method: "POST",
-      body: formData,
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((error) => console.error("Error:", error));
-  };
+  //   await fetch("http://localhost:4000/Agregar_categorias", {
+  //     method: "POST",
+  //     body: formData,
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //     })
+  //     .catch((error) => console.error("Error:", error));
+  // };
 
-  useEffect(() => {
-    fetchData(true);
-    getCategory();
-  }, []);
+  // useEffect(() => {
+  //   fetchData(true);
+  //   getCategory();
+  // }, []);
 
   //Data de Agg
   // Estableciendo las variables
-  const [image, setImage] = useState("");
-  const [titulo, setTitulo] = useState("");
-  const [marca, setMarca] = useState("");
-  const [modelo, setModelo] = useState("");
-  const [category, setCategory] = useState("");
-  const [subcategory, setSubCategory] = useState("");
-  const [cantidad, setCantidad] = useState("");
-  const [precio, setPrecio] = useState("");
-  const [fecha, setFecha] = useState("");
+  // const [image, setImage] = useState("");
+  // const [titulo, setTitulo] = useState("");
+  // const [marca, setMarca] = useState("");
+  // const [modelo, setModelo] = useState("");
+  // const [category, setCategory] = useState("");
+  // const [subcategory, setSubCategory] = useState("");
+  // const [cantidad, setCantidad] = useState("");
+  // const [precio, setPrecio] = useState("");
+  // const [fecha, setFecha] = useState("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState("");
 
   //Reset
-  const reset = () => {
-    setTitulo("");
-    setImage("");
-    setMarca("");
-    setModelo("");
-    setCategory("");
-    setSubCategory("");
-    setCantidad("");
-    setPrecio("");
-    setFecha("");
-    const form = document.getElementById("form_agg");
-    form.reset();
-    const form2 = document.getElementById("form_edit");
-    form2.reset();
-  };
+  // const reset = () => {
+  //   setTitulo("");
+  //   setImage("");
+  //   setMarca("");
+  //   setModelo("");
+  //   setCategory("");
+  //   setSubCategory("");
+  //   setCantidad("");
+  //   setPrecio("");
+  //   setFecha("");
+  //   const form = document.getElementById("form_agg");
+  //   form.reset();
+  //   const form2 = document.getElementById("form_edit");
+  //   form2.reset();
+  // };
 
   //Modal
   const [openAgg, setOpenAgg] = useState(false);
@@ -197,23 +197,6 @@ export default function UpProvider({ children }) {
         handleOpenDel,
         openDelUser,
         setOpenDelUser,
-        handleOpenDelUser,
-        image,
-        setImage,
-        titulo,
-        setTitulo,
-        marca,
-        setMarca,
-        modelo,
-        setModelo,
-        category,
-        setCategory,
-        cantidad,
-        setCantidad,
-        precio,
-        setPrecio,
-        fecha,
-        setFecha,
         message,
         setMessage,
         status,
@@ -224,12 +207,6 @@ export default function UpProvider({ children }) {
         setOpenMessage,
         handleClose,
         handleOpenMessage,
-        listCategory,
-        getCategory,
-        addCategory,
-        subcategory,
-        setSubCategory,
-        userIdToDelete,
         setUserIdToDelete,
         userIdToEdit,
         setUserIdToEdit,
@@ -242,7 +219,7 @@ export default function UpProvider({ children }) {
         handleOpenEdit_user,
       }}
     >
-      <upitemsContext.Provider value={fetchData}>
+      <upitemsContext.Provider >
         <SearchContext.Provider value={setInputSearch}>
           {children}
         </SearchContext.Provider>

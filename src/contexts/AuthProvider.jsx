@@ -13,10 +13,17 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState({});
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
-
+  const [theme, setTheme] = useState(() => {
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      return "dark";
+    }
+    return "light";
+  });
 
   const signup = async (user) => {
-    const response = await fetch("http://localhost:4000/registro", {
+    console.log(user);
+    console.log(import.meta.env.VITE_URL_REGISTER);
+    const response = await fetch(import.meta.env.VITE_URL_REGISTER, {
       method: "POST",
       body: JSON.stringify(user),
       headers: { "Content-type": "application/json; charset=UTF-8" },
