@@ -4,15 +4,60 @@ import Footer from '../components/Footer'
 import { Link } from "react-router-dom";
 
 const Login = () => {
- const [username, setUsername] = useState('');
- const [password, setPassword] = useState('');
 
+  // Estableciendo los estados de los datos
+  const [username, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [message, setMessage] = useState();
 
- const handleSubmit = (e) => {
+  // Inputs sin contenidos
+  const focusOnFirstEmptyInput = () => {
+ if (username == "") {
+    document.getElementById("username").focus();
+    setErrorMessage("Por favor, ingrese su nombre de usuario.");
+    return true;
+ }
+
+ if (password == "") {
+    document.getElementById("password").focus();
+    setErrorMessage("Por favor, ingrese su contraseña.");
+    return true;
+ }
+
+ setErrorMessage("");
+ return false;
+};
+
+  //Función de Inicio de Sección
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Username:', username);
-    console.log('Password:', password);
- };
+   
+    const alert = await focusOnFirstEmptyInput();
+    if (alert === true) {
+       return;
+    }
+   
+    const data_login = {
+       username,
+       password,
+    };
+   
+    //Solicitud al backend
+    const response = await fetch(import.meta.env.VITE_URL_LOGIN, {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data_login),
+      });
+  
+      const data = await response.json();
+            console.log(data.message);
+            setMessage(data.message); // Actualiza el estado del mensaje
+  
+            console.log(data.status);
+    }
 
  return (
     <>
@@ -33,7 +78,7 @@ const Login = () => {
               type="text" 
               placeholder="Username"
               value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={(e) => setUserName(e.target.value)}
             />
           </div>
           <div className="mb-6">
@@ -60,6 +105,9 @@ const Login = () => {
           <a className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 flex items-center justify-center pt-8" href="#">
               Olvide mi Contraseña
             </a>
+            {errorMessage && (
+                <p className="text-red-500 text-xs italic">{errorMessage}</p>
+            )}
         </form>
       </div>
     </div>
