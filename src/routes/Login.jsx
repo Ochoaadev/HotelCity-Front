@@ -3,6 +3,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { Link } from "react-router-dom";
 
+
 const Login = () => {
 
   // Estableciendo los estados de los datos
@@ -10,7 +11,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [message, setMessage] = useState();
-
+  
   // Inputs sin contenidos
   const focusOnFirstEmptyInput = () => {
  if (username == "") {

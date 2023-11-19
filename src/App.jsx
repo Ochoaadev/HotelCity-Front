@@ -9,6 +9,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import UpProvider from "./contexts/UpProvider";
 import ProtectedRoute from "./ProtecRoutes";
 import { AuthProvider, useAuth } from "./contexts/AuthProvider";
+import Login from "./routes/Login"
 function App() {
   return (
     <>
@@ -17,7 +18,8 @@ function App() {
           <UpProvider>
             <Routes>
               <Route path="/" element={<Info />} />
-              <Route path="/Register" element={<Register />} />
+              <Route path="/Registro" element={<Register />} />
+              <Route path="/Login" element ={<Login/>} />
               {/* //Faltan los permisos */}
             </Routes>
           </UpProvider>
