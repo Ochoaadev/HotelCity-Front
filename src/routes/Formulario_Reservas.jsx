@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from '../components/Header';
-import Footer from "../components/Footer";
-
 function Form_reservas (){
+   const [message, setMessage] = useState(null);
    const [InputCedula, SetInputCedula ] = useState();
    const [InputName, SetInputName ] = useState();
    const [InputMovil, SetInputMovil] = useState();
@@ -40,10 +39,48 @@ function Form_reservas (){
    const handleInputPregunta = (event) => {
       SetInputPregunta(event.target.value);
    }
+   const focusOnFirstEmptyInput = () => {
+      return false;
+    };
 
+   const Add_Reservas = async (event) => {
+      event.preventDefault();
+      const alert = await focusOnFirstEmptyInput();
+
+      const Data_Json = {
+         "Cedula":  InputCedula,
+         "Name":    InputName,
+         "Email":   InputEmail,
+         "Movil":   InputMovil,
+         "Telefono": InputTelefono,
+         "PrimeraN": InputPrimeraN,
+         "UltimaN":  InputUltimaN,
+         "CargaF":   InputCargaF,
+         "Comment":  InputPregunta
+      };
+         if (alert === true) {
+            return;
+         }
+      const response = await fetch("http://localhost:4000/Add_Reservas", {
+        method: "POST",
+        headers: {
+         'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(Data_Json),
+      });
+      const data = await response.json();
+         await setMessage(data.message);
+         await console.log(data.status);
+    };
+  
    return(
       <>
          <Header />
+         {message && (
+         <div className="alert alert-success mt-3">
+            {message}
+         </div>
+      )}
          <div className=" w-full max-w-5xl flex justify-center items-center m-auto mt-10">
             <form action="form_reservas" className="bg-crema shadow-md rounded px-8 pt-6 pb-8 mb-4">
                <div className="flex flex-col ">
@@ -149,12 +186,15 @@ function Form_reservas (){
                      />
                   </label>
                </div>
-               <button class="bg-AzulO float-right hover:bg-bg-AzulO-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+               <button 
+               onClick={(event) => {
+                  Add_Reservas(event);
+                }}
+               class="bg-AzulO float-right hover:bg-bg-AzulO-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
                   Reservar
                </button>
             </form>
          </div>
-         <Footer/>
       </>
    )
 }
