@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from "react";
+import Message from "../components/Modal/Message";
 import Header from '../components/Header';
-
+import { useItemsContext, useUpItemsContext } from "../contexts/UpProvider";
 
 function Form_reservas (){
-   const [message, setMessage] = useState(null);
+   const { setMessage, setStatus, handleOpenMessage } = useItemsContext();
+   const update = useUpItemsContext();
    const [InputCedula, SetInputCedula ] = useState();
    const [InputName, SetInputName ] = useState();
    const [InputMovil, SetInputMovil] = useState();
@@ -66,7 +68,7 @@ function Form_reservas (){
       if (alert === true) {
          return;
       }
-      const response = await fetch(import.meta.env.VITE_URL_REGISTER, {
+      const response = await fetch(import.meta.env.VITE_URL_RESERVAS, {
          method: "POST",
          headers: {
             'Content-Type': 'application/json'
@@ -75,17 +77,15 @@ function Form_reservas (){
       });
       const data = await response.json();
          await setMessage(data.message);
-         await console.log(data.status);
+         await setStatus(data.status);
+         await handleOpenMessage();
     };
   
    return(
       <>
+      <Message />
          <Header />
-         {message && (
-         <div className="alert alert-success mt-3">
-            {message}
-         </div>
-      )}
+      
          <div className=" w-full max-w-5xl flex justify-center items-center m-auto mt-10">
             <form action="form_reservas" className="bg-crema shadow-md rounded px-8 pt-6 pb-8 mb-4">
                <div className="flex flex-col ">

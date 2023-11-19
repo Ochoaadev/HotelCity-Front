@@ -169,9 +169,7 @@ export default function UpProvider({ children }) {
     setOpenDel(false);
     setOpenDelUser(false);
     setOpenEdit_user(false);
-    fetchData(true);
     setMessage("");
-    reset();
   };
 
   const [usuarios, setUsuarios] = useState([]);

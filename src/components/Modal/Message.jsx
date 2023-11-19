@@ -1,6 +1,7 @@
 import { Modal, Button, ModalHeader, ModalBody, ModalFooter } from "./Modal";
 import { useItemsContext } from "../../contexts/UpProvider";
 
+
 export default function Message() {
   //Creacion del estado del modal
   const { message, openMessage, handleClose } = useItemsContext();
