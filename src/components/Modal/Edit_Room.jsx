@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useItemsContext } from '../../contexts/UpProvider';
 
 const Edit = ( { habitacionId }) => {
+    console.log(habitacionId)
+
 const [Tipo, setTipo] = useState(habitacionId.Tipo);
   const [Descripcion, setDescripcion] = useState(habitacionId.Descripcion);
   const [Comodidad, setComodidad] = useState(habitacionId.Comodidad);
