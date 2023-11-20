@@ -6,6 +6,7 @@ import Agg from '../components/Modal/AggRoom'
 
 const Habitaciones = () => {
   const [habitaciones, setHabitaciones] = useState([]);
+  const [habitacionId, setHabitacionId] = useState(null);
 
   useEffect(() => {
     const obtenerHabitaciones = async () => {
@@ -27,7 +28,7 @@ const Habitaciones = () => {
       <Header />
       <div className="container mx-auto">
         <h1 className="text-3xl font-bold my-6">Tipos de habitaciones disponibles</h1>
-        <Agg />
+        <Agg habitacionId={habitacionId} />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {habitaciones.map(habitacion => (
             <div key={habitacion.id} className="bg-gray-100 p-4 rounded-md">
@@ -37,6 +38,7 @@ const Habitaciones = () => {
               <p className="mb-2"><strong>Comodidades:</strong> {habitacion.Comodidad}</p>
               <p className="mb-2"><strong>Tarifa:</strong> {habitacion.Tarifa}</p>
               <p className="mb-2"><strong>Valoración:</strong> {habitacion.Review}</p>
+              <button onClick={() => setHabitacionId(habitacion.id)}>Editar</button>
             </div>
           ))}
         </div>
