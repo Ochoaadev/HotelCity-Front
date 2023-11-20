@@ -84,34 +84,29 @@ export default function UpProvider({ children }) {
 
   //Data de Agg
   // Estableciendo las variables
-  // const [image, setImage] = useState("");
-  // const [titulo, setTitulo] = useState("");
-  // const [marca, setMarca] = useState("");
-  // const [modelo, setModelo] = useState("");
-  // const [category, setCategory] = useState("");
-  // const [subcategory, setSubCategory] = useState("");
-  // const [cantidad, setCantidad] = useState("");
-  // const [precio, setPrecio] = useState("");
-  // const [fecha, setFecha] = useState("");
+  const [image, setImage] = useState("");
+  const [Tipo, setTipo] = useState("");
+  const [Descripcion, setDescripcion] = useState("");
+  const [Comodidad, setComodidad] = useState("");
+  const [Tarifa, setTarifa] = useState("");
+  const [Review, setReview] = useState("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState("");
 
   //Reset
-  // const reset = () => {
-  //   setTitulo("");
-  //   setImage("");
-  //   setMarca("");
-  //   setModelo("");
-  //   setCategory("");
-  //   setSubCategory("");
-  //   setCantidad("");
-  //   setPrecio("");
-  //   setFecha("");
-  //   const form = document.getElementById("form_agg");
-  //   form.reset();
-  //   const form2 = document.getElementById("form_edit");
-  //   form2.reset();
-  // };
+  const reset = () => {
+    setTipo("");
+    setImage("");
+    setDescripcion("");
+    setComodidad("");
+    setTarifa("");
+    setReview("");
+    setCantidad("");
+    const form = document.getElementById("form_agg");
+    form.reset();
+    const form2 = document.getElementById("form_edit");
+    form2.reset();
+  };
 
   //Modal
   const [openAgg, setOpenAgg] = useState(false);

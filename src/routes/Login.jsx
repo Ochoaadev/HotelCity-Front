@@ -49,32 +49,7 @@ const Login = () => {
 
   //Función de Inicio de Sección
   const handleSubmit = async (e) => {
-    // e.preventDefault();
-   
-    // const alert = await focusOnFirstEmptyInput();
-    // if (alert === true) {
-    //    return;
-    // }
-   
-    // const data_login = {
-    //    username,
-    //    password,
-    // };
-   
-    // //Solicitud al backend
-    // const response = await fetch(import.meta.env.VITE_URL_LOGIN, {
-    //     method: "POST",
-    //     headers: {
-    //       'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify(data_login),
-    //   });
-  
-    //   const data = await response.json();
-    //         console.log(data.message);
-    //         setMessage(data.message); // Actualiza el estado del mensaje
-  
-    //         console.log(data.status);
+
         e.preventDefault();
         const alert = await focusOnFirstEmptyInput();
         if (alert === true) {
