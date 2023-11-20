@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const AddRoom = () => {
+const Agg = () => {
     const [Tipo, setTipo] = useState('');
     const [Descripcion, setDescripcion] = useState('');
     const [Comodidad, setComodidad] = useState('');
@@ -70,4 +70,4 @@ const AddRoom = () => {
     );
 };
 
-export default AddRoom
+export default Agg
