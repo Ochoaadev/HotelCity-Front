@@ -4,7 +4,8 @@ import { useItemsContext } from '../../contexts/UpProvider';
 
 const Edit = ( { habitacionId }) => {
     console.log(habitacionId)
-    const [Tipo, setTipo] = useState(habitacionId.Tipo);
+
+const [Tipo, setTipo] = useState(habitacionId.Tipo);
   const [Descripcion, setDescripcion] = useState(habitacionId.Descripcion);
   const [Comodidad, setComodidad] = useState(habitacionId.Comodidad);
   const [image, setImage] = useState(habitacionId.imagen);
@@ -50,7 +51,7 @@ const Edit = ( { habitacionId }) => {
 
     return (
         <div>
-            <button onClick={openModal} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            <button onClick={openModal} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ">
                 Editar Habitacion
             </button>
             {isOpen && (

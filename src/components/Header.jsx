@@ -102,7 +102,7 @@ function Header() {
                 {/* Modales  || user.rol == "User" //Editar,eli o agregar*/}
                     {(location.pathname === "/" || location.pathname === "/Listar_Reservas" || location.pathname === "/Home" || location.pathname === "/Reservas"  || location.pathname === "/Habitaciones") && user.rol == "Admin" ? (
                 <>
-                <button className="font-bold text-blanco" onClick={handleOpenForm}>Reservas</button>
+                <button className="font-bold text-blanco" onClick={handleOpenForm}>Agregar Reservas</button>
                 <button className="font-bold text-blanco" onClick={handleListarReservas}>Ver Reservas</button>
                 <button className="font-bold text-blanco" onClick={handleOpenRoom}>Habitaciones</button> 
                 </>

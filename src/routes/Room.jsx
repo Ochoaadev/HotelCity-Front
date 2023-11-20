@@ -4,12 +4,14 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Agg from '../components/Modal/AggRoom'
 import Edit from '../components/Modal/Edit_Room'
+import DeleteRoom from '../components/Modal/DeletRoom'
 
 const Habitaciones = () => {
-  const [habitaciones, setHabitaciones] = useState([]);
-  const [habitacionId, setHabitacionId] = useState(null);
+ const [habitaciones, setHabitaciones] = useState([]);
+ const [habitacionId, setHabitacionId] = useState(null);
+ const [userRole, setUserRole] = useState('');
 
-  useEffect(() => {
+ useEffect(() => {
     const obtenerHabitaciones = async () => {
       try {
         const respuesta = await axios.get('http://localhost:4000/habitaciones');
@@ -22,14 +24,33 @@ const Habitaciones = () => {
     };
 
     obtenerHabitaciones();
-  }, []);
+ }, []);
 
-  return (
+ useEffect(() => {
+    const obtenerUserRole = async () => {
+      try {
+        const respuesta = await axios.get('http://localhost:4000/user/role');
+        setUserRole(respuesta.data.role);
+      } catch (error) {
+        console.error('Error al obtener el rol del usuario:', error);
+      }
+    };
+
+    obtenerUserRole();
+ }, []);
+
+ return (
     <>
       <Header />
       <div className="container mx-auto">
         <h1 className="text-3xl font-bold my-6">Tipos de habitaciones disponibles</h1>
+<<<<<<< HEAD
         <Agg />
+=======
+
+        {userRole === 'Admin' && <Agg />}
+        <Agg habitacionId={habitacionId} />
+>>>>>>> 77db4d8644deae1d77109130693c42156b5d2385
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {habitaciones.map(habitacion => (
             <div key={habitacion._id} className="bg-gray-100 p-4 rounded-md">
@@ -39,7 +60,12 @@ const Habitaciones = () => {
               <p className="mb-2"><strong>Comodidades:</strong> {habitacion.Comodidad}</p>
               <p className="mb-2"><strong>Tarifa:</strong> {habitacion.Tarifa}</p>
               <p className="mb-2"><strong>Valoración:</strong> {habitacion.Review}</p>
+<<<<<<< HEAD
               <Edit habitacionId={habitacion} />
+=======
+              {userRole === 'Admin' && <Edit habitacionId={habitacion} />}
+              {userRole === 'Admin' && <DeleteRoom habitacionId={habitacion}/>}
+>>>>>>> 77db4d8644deae1d77109130693c42156b5d2385
             </div>
           ))}
           
@@ -47,7 +73,7 @@ const Habitaciones = () => {
       </div>
       <Footer />
     </>
-  );
+ );
 };
 
 export default Habitaciones;
