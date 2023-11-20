@@ -83,7 +83,7 @@ const ModalHeader = ({ children }) => {
 const ModalBody = ({ children }) => {
   return (
     <>
-      <div className="flex items-center justify-center w-full p-5 bg-white-smoke dark:bg-woodsmoke text-black dark:text-white">
+      <div className="flex items-center justify-center w-full p-5 bg-black text-black">
         {children}
       </div>
     </>

@@ -1,86 +1,78 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useItemsContext } from '../../contexts/UpProvider';
 
-const UpdateRoom = () => {
-    const [formData, setFormData] = useState({
-        Tipo: '',
-        Descripcion: '',
-        Comodidad: '',
-        Tarifa: '',
-        Review: ''
-    });
-    const [file, setFile] = useState(null);
+const Edit = () => {
+    const [Tipo, setTipo] = useState('');
+    const [Descripcion, setDescripcion] = useState('');
+    const [Comodidad, setComodidad] = useState('');
+    const [image, setImage] = useState(null);
+    const [Tarifa, setTarifa] = useState('');
+    const [Review, setReview] = useState('');
+    const [isOpen, setIsOpen] = useState(false);
+
+    const{
+        HabitacionIdToEdit
+    } = useItemsContext
+
+    const openModal = () => {
+        setIsOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsOpen(false);
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const roomId = 'ID_DE_LA_HABITACION'; // Reemplaza esto con el ID de la habitación que deseas editar
-
         const formData = new FormData();
-        for (let key in this.state.formData) {
-            formData.append(key, this.state.formData[key]);
-        }
-        if (file) {
-            formData.append('image', file);
-        }
+        formData.append('image', image);
+        formData.append('Tipo', Tipo);
+        formData.append('Descripcion', Descripcion);
+        formData.append('Comodidad', Comodidad);
+        formData.append('Tarifa', Tarifa);
+        formData.append('Review', Review);
 
         try {
-            const response = await axios.put(`http://localhost:4000/room/${roomId}`, formData);
-            console.log(response.data);
-        } catch (error) {
-            console.error(error);
+            const res = await axios.put(`http://localhost:4000//rooms/${id}`, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+
+            console.log(res.data);
+        } catch (err) {
+            console.log(err);
         }
-    };
-
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
-
-    const handleFileChange = (e) => {
-        setFile(e.target.files[0]);
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                name="Tipo"
-                placeholder="Tipo"
-                value={formData.Tipo}
-                onChange={handleChange}
-            />
-            <input
-                type="text"
-                name="Descripcion"
-                placeholder="Descripcion"
-                value={formData.Descripcion}
-                onChange={handleChange}
-            />
-            <input
-                type="text"
-                name="Comodidad"
-                placeholder="Comodidad"
-                value={formData.Comodidad}
-                onChange={handleChange}
-            />
-            <input
-                type="number"
-                name="Tarifa"
-                placeholder="Tarifa"
-                value={formData.Tarifa}
-                onChange={handleChange}
-            />
-            <input
-                type="text"
-                name="Review"
-                placeholder="Review"
-                value={formData.Review}
-                onChange={handleChange}
-            />
-            <input type="file" name="image" onChange={handleFileChange} />
-            <button type="submit">Editar habitación</button>
-        </form>
+        <div>
+            <button onClick={openModal} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Editar Habitacion
+            </button>
+            {isOpen && (
+                <div className="fixed inset-0 z-10 overflow-y-auto bg-gray-500 bg-opacity-75">
+                    <div className="flex items-center justify-center min-h-screen">
+                        <div className="bg-white p-6 rounded-lg w-96">
+                            <h3 className="text-lg font-bold mb-4">Editar Habitación</h3>
+                            <form onSubmit={handleSubmit} className="space-y-4">
+                                <input type="text" placeholder="Tipo" value={Tipo} onChange={(e) => setTipo(e.target.value)} className="w-full p-2 border rounded" />
+                                <input type="text" placeholder="Descripcion" value={Descripcion} onChange={(e) => setDescripcion(e.target.value)} className="w-full p-2 border rounded" />
+                                <input type="text" placeholder="Comodidad" value={Comodidad} onChange={(e) => setComodidad(e.target.value)} className="w-full p-2 border rounded" />
+                                <input type="file" onChange={(e) => setImage(e.target.files[0])} className="w-full p-2 border rounded" />
+                                <input type="text" placeholder="Tarifa" value={Tarifa} onChange={(e) => setTarifa(e.target.value)} className="w-full p-2 border rounded" />
+                                <input type="text" placeholder="Review" value={Review} onChange={(e) => setReview(e.target.value)} className="w-full p-2 border rounded" />
+                                <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex items-center justify-center">Editar</button>
+                            </form>
+                            <button onClick={closeModal} className="mt-4 text-blue-500 hover:underline flex items-center justify-center">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            )}
+        </div>
     );
 };
 
-export default UpdateRoom;
+export default Edit
