@@ -2,6 +2,7 @@ import Message from "./Message";
 import { Modal, Button, ModalHeader, ModalBody, ModalFooter  } from "./Modal";
 import { useItemsContext } from "../../contexts/UpProvider";
 import { useEffect, useState } from "react";
+import emailjs from 'emailjs-com';
 
 function Edit_Reserva() {
   const {
@@ -40,6 +41,21 @@ function Edit_Reserva() {
   await setStatus(data.status);
   await handleOpenMessage();
   handleOpenEdit_reserva(); // Cierra el modal después de guardar
+
+  // Enviar correo
+  const emailData = {
+    to_email: reservaIdToEdit.Email,
+    to_name: 'Hotel El Dorado de Los Andes',
+    from_name: 'Yetzenia Mendoza',
+    message: `La reserva ha sido actualizada. Estado: ${Status}. Motivo: ${inputmotivo}`,
+    reply_to: 'yetzeniam7@gmail.com'
+  };
+  emailjs.send('service_qaxid4r', 'template_k3s73qg', emailData, 'UFxBRXh-Ejc7o4j7E')
+    .then((result) => {
+        console.log('Correo enviado exitosamente:', result.text);
+    }, (error) => {
+        console.log('Error al enviar el correo:', error.text);
+    });
 };
   
    return (
