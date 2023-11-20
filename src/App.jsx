@@ -13,8 +13,9 @@ import ProtectedRoute from "./ProtecRoutes";
 import { AuthProvider, useAuth } from "./contexts/AuthProvider";
 import Home from "./routes/MiHotel"
 import FormularioReservas from "./routes/Formulario_Reservas";
-import Room from './routes/Room'
-import Listar_Reservas from './routes/Listar_Reservas'
+import Room from './routes/Room';
+import Listar_Reservas from './routes/Listar_Reservas';
+import emailjs from 'emailjs-com'
 function App() {
   return (
     <>
