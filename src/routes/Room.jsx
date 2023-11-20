@@ -33,7 +33,7 @@ const Habitaciones = () => {
           {habitaciones.map(habitacion => (
             <div key={habitacion.id} className="bg-gray-100 p-4 rounded-md">
               <img src={habitacion.imagen} alt={habitacion.Tipo} className="w-full h-64 object-cover mb-4 rounded-md" />
-              <h2 className="text-xl font-bold">{habitacion.Dipo}</h2>
+              <h2 className="text-xl font-bold">{habitacion.Tipo}</h2>
               <p className="text-gray-600 mb-2">{habitacion.Descripcion}</p>
               <p className="mb-2"><strong>Comodidades:</strong> {habitacion.Comodidad}</p>
               <p className="mb-2"><strong>Tarifa:</strong> {habitacion.Tarifa}</p>
