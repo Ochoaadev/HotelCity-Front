@@ -2,8 +2,15 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import React, { useEffect, useState } from "react";
 import Message from "../components/Modal/Message";
-
+import Edit_Reserva from "../components/Modal/Edit_Reserva";
+import { useItemsContext } from "../contexts/UpProvider";
 export default function Listar_Reservas() {
+   const {
+      setreservaIdToDelete,
+      handleOpenDelreserva,
+      setreservaIdToEdit,
+      handleOpenEdit_reserva,
+    } = useItemsContext();
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -13,7 +20,6 @@ export default function Listar_Reservas() {
   }, []);
 
   const table_head = [
-    "ID",
     "Cédula",
     "Nombre",
     "Email",
@@ -27,10 +33,14 @@ export default function Listar_Reservas() {
     "Acción",
   ];
 
-
+  const Edit = async (user) => {
+   await setreservaIdToEdit(user);
+   handleOpenEdit_reserva();
+ };
   return (
     <>
     <Header />
+    <Edit_Reserva />
       <div className="mt-6 ml-2 mr-4 mb-8">
         {data.length != 0 ? (
           <div className="h-full w-full overflow-scroll">
@@ -52,9 +62,6 @@ export default function Listar_Reservas() {
               <tbody>
                 {data.map((user) => (
                   <tr key={user._id}>
-                    <td className="">
-                      <span className="font-normal">{user.id}</span>
-                    </td>
                     <td className="">
                       <span className="font-normal">{user.Cedula}</span>
                     </td>
@@ -86,8 +93,10 @@ export default function Listar_Reservas() {
                       <span className="font-normal">{user.Status}</span>
                     </td>
                     <td className="flex gap-4">
-                      <button
-                       
+                    <button
+                        onClick={() => {
+                          Edit(user);
+                        }}
                       >
                         Editar
                       </button>
