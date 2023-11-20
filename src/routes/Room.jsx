@@ -54,12 +54,8 @@ const Habitaciones = () => {
               <p className="mb-2"><strong>Comodidades:</strong> {habitacion.Comodidad}</p>
               <p className="mb-2"><strong>Tarifa:</strong> {habitacion.Tarifa}</p>
               <p className="mb-2"><strong>Valoración:</strong> {habitacion.Review}</p>
-<<<<<<< HEAD
-              <Edit habitacionId={habitacion} />
-=======
               {userRole === 'Admin' && <Edit habitacionId={habitacion} />}
               {userRole === 'Admin' && <DeleteRoom habitacionId={habitacion}/>}
->>>>>>> 77db4d8644deae1d77109130693c42156b5d2385
             </div>
           ))}
           
