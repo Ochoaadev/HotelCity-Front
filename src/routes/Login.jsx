@@ -49,32 +49,7 @@ const Login = () => {
 
   //Función de Inicio de Sección
   const handleSubmit = async (e) => {
-    // e.preventDefault();
-   
-    // const alert = await focusOnFirstEmptyInput();
-    // if (alert === true) {
-    //    return;
-    // }
-   
-    // const data_login = {
-    //    username,
-    //    password,
-    // };
-   
-    // //Solicitud al backend
-    // const response = await fetch(import.meta.env.VITE_URL_LOGIN, {
-    //     method: "POST",
-    //     headers: {
-    //       'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify(data_login),
-    //   });
-  
-    //   const data = await response.json();
-    //         console.log(data.message);
-    //         setMessage(data.message); // Actualiza el estado del mensaje
-  
-    //         console.log(data.status);
+
         e.preventDefault();
         const alert = await focusOnFirstEmptyInput();
         if (alert === true) {
@@ -142,7 +117,7 @@ const Login = () => {
                 handleSubmit (e)
                 update(true);
               }}
-              className="px-2 flex items-center text-center bg-dark-tangerine dark:bg-gray/50 dark:hover:text-dark-tangerine dark:hover:bg-gray dark:border-woodsmoke justify-center h-10 rounded-lg hover:bg-pizazz focus:bg-blaze-orange dark:focus:bg-woodsmoke border-b-4 border-blaze-orange w-24 ssm:h-10 text-white font-bold"
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
               Entrar
             </button>

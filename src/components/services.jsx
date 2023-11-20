@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from './Header';
 import Footer from './Footer'
-import Habitaciones from '../routes/Room'
 import {Link} from 'react-router-dom'
 
 function Service(){

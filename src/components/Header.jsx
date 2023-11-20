@@ -8,7 +8,9 @@ import {
 } from "../contexts/UpProvider";
 import { useLocation } from "react-router-dom";
 import { useAuth } from "../contexts/AuthProvider";
+
 function Header() {
+
     const location = useLocation();
     const navigate = useNavigate();
     const handleOpenForm = () => {
@@ -37,6 +39,9 @@ function Header() {
         navigate("/Registro")
     }
 
+    const handleListarReservas = () =>{
+        navigate("/Listar_Reservas")
+    }
 
     const [showMenu, SetshowMenu] = useState(false);
     const [search, setSearch] = useState('');
@@ -46,7 +51,11 @@ function Header() {
     };
 
     const { user, isAuthenticated, logout, theme, setTheme } = useAuth();
-  const [menu, setMenu] = useState(false);
+
+    const handleLogout = () => {
+        logout();  // Cerrar sesión
+      };
+//   const [menu, setMenu] = useState(false);
 
   const update = useUpItemsContext();
     const submitSearch = (e) => {
@@ -88,26 +97,25 @@ function Header() {
                     <button className="font-bold text-blanco" onClick={handleOpenAbutUs}>Sobre Nosotros</button>
 
                     <button className="font-bold text-blanco" onClick={handleOpenservices}>Servicios</button>
- {/* Modales */}
- {(location.pathname === "/" || location.pathname === "/Home" || location.pathname === "/Reservas" ) && user.rol == "Admin" ? (
-        <>
-         <button className="font-bold text-blanco" onClick={handleOpenForm}>Reservar</button>
-        </>
-      ) : null}
-
 
 
                 {/* Modales  || user.rol == "User" //Editar,eli o agregar*/}
-                    {(location.pathname === "/" || location.pathname === "/Home" || location.pathname === "/Reservas" || location.pathname === "/Habitaciones") && user.rol == "Admin" ? (
+                    {(location.pathname === "/" || location.pathname === "/Listar_Reservas" || location.pathname === "/Home" || location.pathname === "/Reservas"  || location.pathname === "/Habitaciones") && user.rol == "Admin" ? (
                 <>
-                <button className="font-bold text-blanco" onClick={handleOpenForm}>Ver Reservas</button>
+                <button className="font-bold text-blanco" onClick={handleOpenForm}>Reservas</button>
+                <button className="font-bold text-blanco" onClick={handleListarReservas}>Ver Reservas</button>
                 <button className="font-bold text-blanco" onClick={handleOpenRoom}>Habitaciones</button> 
                 </>
                 ) : null}        
 
-                    <button className="font-bold text-blanco" onClick={handleLogin}>Acceder</button>
-                    
-                    <button className="font-bold text-blanco" onClick={handleRegister}>Registrarse</button>
+                {isAuthenticated ? (
+                        <button onClick={handleLogout} className="font-bold text-blanco">Cerrar sesión</button>
+                    ) : (
+                        <>
+                        <button className="font-bold text-blanco" onClick={handleLogin}>Acceder</button>
+                        <button className="font-bold text-blanco" onClick={handleRegister}>Registrarse</button>
+                        </>
+                    )}
 
                 </nav>
                 <button onClick={() => SetshowMenu(!showMenu)} className="xl:hidden text-2xl p-2">
