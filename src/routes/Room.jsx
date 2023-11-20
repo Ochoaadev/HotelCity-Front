@@ -7,14 +7,9 @@ import Edit from '../components/Modal/Edit_Room'
 import DeleteRoom from '../components/Modal/DeletRoom'
 
 const Habitaciones = () => {
-<<<<<<< HEAD
  const [habitaciones, setHabitaciones] = useState([]);
  const [habitacionId, setHabitacionId] = useState(null);
  const [userRole, setUserRole] = useState('');
-=======
-  const [habitaciones, setHabitaciones] = useState([]);
-  const [habitacionId, setHabitacionId] = useState(null);
->>>>>>> 33e53f8da1a0f9ecebb26df802b25a0ffd28b2b3
 
  useEffect(() => {
     const obtenerHabitaciones = async () => {
@@ -49,16 +44,9 @@ const Habitaciones = () => {
       <Header />
       <div className="container mx-auto">
         <h1 className="text-3xl font-bold my-6">Tipos de habitaciones disponibles</h1>
-<<<<<<< HEAD
+
         {userRole === 'Admin' && <Agg />}
-=======
-<<<<<<< HEAD
         <Agg habitacionId={habitacionId} />
-=======
-        <Agg />
-        <Edit/>
->>>>>>> e1124242768e83d2509f8897486483dbf924d9d8
->>>>>>> 33e53f8da1a0f9ecebb26df802b25a0ffd28b2b3
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {habitaciones.map(habitacion => (
             <div key={habitacion._id} className="bg-gray-100 p-4 rounded-md">
@@ -68,12 +56,8 @@ const Habitaciones = () => {
               <p className="mb-2"><strong>Comodidades:</strong> {habitacion.Comodidad}</p>
               <p className="mb-2"><strong>Tarifa:</strong> {habitacion.Tarifa}</p>
               <p className="mb-2"><strong>Valoración:</strong> {habitacion.Review}</p>
-<<<<<<< HEAD
               {userRole === 'Admin' && <Edit habitacionId={habitacion} />}
               {userRole === 'Admin' && <DeleteRoom habitacionId={habitacion}/>}
-=======
-              <button onClick={() => setHabitacionId(habitacion.id)}>Editar</button>
->>>>>>> 33e53f8da1a0f9ecebb26df802b25a0ffd28b2b3
             </div>
           ))}
           
@@ -84,8 +68,4 @@ const Habitaciones = () => {
  );
 };
 
-<<<<<<< HEAD
-export default Habitaciones
-=======
 export default Habitaciones;
->>>>>>> 33e53f8da1a0f9ecebb26df802b25a0ffd28b2b3
