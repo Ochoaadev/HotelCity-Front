@@ -112,14 +112,14 @@ export default function UpProvider({ children }) {
   const [openAgg, setOpenAgg] = useState(false);
   const handleOpenAgg = () => {
     setOpenAgg(!openAgg);
-    reset();
+    //reset();
   };
 
   //Modal
   const [openEdit, setOpenEdit] = useState(false);
   const handleOpenEdit = () => {
     setOpenEdit(!openEdit);
-    reset();
+    //reset();
   };
 
   //Modal
@@ -130,21 +130,21 @@ export default function UpProvider({ children }) {
   const [item, setItem] = useState("");
 
   //Eliminar user
-  const [userIdToDelete, setUserIdToDelete] = useState("");
+  const [reservaIdToDelete, setreservaIdToDelete] = useState("");
 
-  const [openDelUser, setOpenDelUser] = useState(false);
-  const handleOpenDelUser = () => setOpenDelUser(!openDelUser);
+  const [openDelreserva, setOpenDelreserva] = useState(false);
+  const handleOpenDelreserva = () => setOpenDelreserva(!openDelreserva);
 
   
-  const [userIdToEdit, setUserIdToEdit] = useState("");
+  const [reservaIdToEdit, setreservaIdToEdit] = useState("");
   
-  // const [openEdit_user, setOpenEdit_user] = useState(false);
-  // const handleOpenEdit_user = () => setOpenEdit_user(!openEdit_user);
+   const [openEdit_reserva, setOpenEdit_reserva] = useState(false);
+   const handleOpenreserva = () => setOpenEdit_reserva(!openEdit_reserva);
 
   const [openEdit_user, setOpenEdit_user] = useState(false);
-  const handleOpenEdit_user = () => {
-    setOpenEdit_user(!openEdit_user);
-    reset();
+  const handleOpenEdit_reserva = () => {
+    setOpenEdit_reserva(!openEdit_user);
+    //reset();
   };
 
 
@@ -162,8 +162,8 @@ export default function UpProvider({ children }) {
     setOpenAgg(false);
     setOpenEdit(false);
     setOpenDel(false);
-    setOpenDelUser(false);
-    setOpenEdit_user(false);
+    setOpenDelreserva(false);
+    setOpenEdit_reserva(false);
     setMessage("");
   };
 
@@ -188,8 +188,8 @@ export default function UpProvider({ children }) {
         openDel,
         setOpenDel,
         handleOpenDel,
-        openDelUser,
-        setOpenDelUser,
+        openDelreserva,
+        setOpenDelreserva,
         message,
         setMessage,
         status,
@@ -200,16 +200,16 @@ export default function UpProvider({ children }) {
         setOpenMessage,
         handleClose,
         handleOpenMessage,
-        setUserIdToDelete,
-        userIdToEdit,
-        setUserIdToEdit,
+        setreservaIdToDelete,
+        reservaIdToEdit,
+        setreservaIdToEdit,
         filterCategory,
         setFilterCategory,
         Usuarios,
         usuarios,
-        openEdit_user,
-        setOpenEdit_user,
-        handleOpenEdit_user,
+        openEdit_reserva,
+        setOpenEdit_reserva,
+        handleOpenEdit_reserva,
       }}
     >
       <upitemsContext.Provider >
