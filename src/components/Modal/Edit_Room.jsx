@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useItemsContext } from '../../contexts/UpProvider';
 
-const Edit = () => {
-    const [Tipo, setTipo] = useState('');
-    const [Descripcion, setDescripcion] = useState('');
-    const [Comodidad, setComodidad] = useState('');
-    const [image, setImage] = useState(null);
-    const [Tarifa, setTarifa] = useState('');
-    const [Review, setReview] = useState('');
-    const [isOpen, setIsOpen] = useState(false);
+const Edit = ( { habitacionId }) => {
+const [Tipo, setTipo] = useState(habitacionId.Tipo);
+  const [Descripcion, setDescripcion] = useState(habitacionId.Descripcion);
+  const [Comodidad, setComodidad] = useState(habitacionId.Comodidad);
+  const [image, setImage] = useState(habitacionId.imagen);
+  const [Tarifa, setTarifa] = useState(habitacionId.Tarifa);
+  const [Review, setReview] = useState(habitacionId.Review);
+  const [isOpen, setIsOpen] = useState(false);
 
     const{
         HabitacionIdToEdit
@@ -49,7 +49,7 @@ const Edit = () => {
 
     return (
         <div>
-            <button onClick={openModal} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            <button onClick={openModal} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ">
                 Editar Habitacion
             </button>
             {isOpen && (

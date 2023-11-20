@@ -18,6 +18,7 @@ export function useSearchContext() {
 
 export default function UpProvider({ children }) {
   const [items, setItems] = useState([]);
+  const [habitaciones, setHabitaciones] = useState([])
   const [listCategory, setListCategory] = useState([]);
   const [inputSearch, setInputSearch] = useState("");
   const [filterCategory, setFilterCategory] = useState("");
@@ -128,6 +129,7 @@ export default function UpProvider({ children }) {
 
   //Editar
   const [item, setItem] = useState("");
+  const [habitacion, setHabitacion] = useState("")
 
   //Eliminar user
   const [reservaIdToDelete, setreservaIdToDelete] = useState("");
@@ -137,6 +139,7 @@ export default function UpProvider({ children }) {
 
   
   const [reservaIdToEdit, setreservaIdToEdit] = useState("");
+  const [HabitacionIdToEdit, setHabitacionIdToEdit] = useState("");
   
    const [openEdit_reserva, setOpenEdit_reserva] = useState(false);
    const handleOpenreserva = () => setOpenEdit_reserva(!openEdit_reserva);
@@ -179,6 +182,7 @@ export default function UpProvider({ children }) {
     <itemsContext.Provider
       value={{
         items,
+        habitaciones,
         openAgg,
         setOpenAgg,
         handleOpenAgg,
@@ -196,6 +200,8 @@ export default function UpProvider({ children }) {
         setStatus,
         item,
         setItem,
+        habitacion,
+        setHabitacion,
         openMessage,
         setOpenMessage,
         handleClose,
